@@ -18,11 +18,13 @@ void bubble_sort(int *array, size_t size)
 	size_t j;
 	size_t new;
 
+	if (size <= 0 || array == NULL)
+		return;
 	for (i = 0; i < size - 1; i++)
 	{
 		for (j = 0; j < size - i - 1; j++)
 		{
-			check = 0;
+			check = 0;	/* if already sorted list */
 			if (array[j] > array[j + 1])
 			{
 				new = array[j];
@@ -32,7 +34,7 @@ void bubble_sort(int *array, size_t size)
 				check = 1;
 			}
 		}
-		if (check == 0)
+		if (check == 0) /* optimize code */
 			return;
 	}
 }
